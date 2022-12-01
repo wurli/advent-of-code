@@ -30,9 +30,9 @@ walk(files, \(file) {
 	
 	cat(knitr::knit(
 		text = glue::glue("
-			```{{r}}
-			{code}
-			```
+		```{{r}}
+		{code}
+		```
 		"),
 		quiet = TRUE
 	))
