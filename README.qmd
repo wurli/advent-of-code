@@ -19,6 +19,11 @@ suppressPackageStartupMessages(
 	library(tidyverse)
 )
 
+knitr::opts_chunk$set(
+	collapse = TRUE,
+	comment = "#> "
+)
+
 year  <- "2022"
 files <- list.files(year)
 

@@ -28,13 +28,9 @@ total_calories <- input |>
 
 # Part 1
 total_calories[1]
-```
+#>  [1] 71023
 
-    [1] 71023
-
-``` r
 # Part 2
 sum(total_calories[1:3])
+#>  [1] 206289
 ```
-
-    [1] 206289
