@@ -1,0 +1,41 @@
+---
+title: "Solutions to Advent of Code 2022"
+author: "Jacob Scott"
+format: gfm
+editor: visual
+---
+
+These are my solutions to [Advent of Code](https://adventofcode.com/)
+2022.
+
+```{r}
+#| results: asis
+#| echo: false
+
+# This code renders all the solutions for a given year
+# straight into the readme. Pretty neat!
+
+suppressPackageStartupMessages(
+	library(tidyverse)
+)
+
+year  <- "2022"
+files <- list.files(year)
+
+walk(files, \(file) {
+	
+	cat("## ", file, "\n", sep = "")
+	
+	code <- read_file(file.path(year, file, "code.R"))
+	
+	cat(knitr::knit(
+		text = glue::glue("
+			```{{r}}
+			{code}
+			```
+		"),
+		quiet = TRUE
+	))
+	
+})
+```

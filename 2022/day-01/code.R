@@ -1,6 +1,6 @@
 library(tidyverse)
 
-input <- readr::read_file("2022-01/2022-01-input.txt") 
+input <- readr::read_file("2022/day-01/input.txt") 
 
 total_calories <- input |> 
 	strsplit("\n\n") |> 
