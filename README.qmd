@@ -25,7 +25,7 @@ knitr::opts_chunk$set(
 )
 
 year  <- "2022"
-files <- list.files(year)
+files <- rev(list.files(year, pattern = "^day-"))
 
 walk(files, \(file) {
 	
