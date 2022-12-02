@@ -6,7 +6,7 @@ editor: visual
 ---
 
 These are my solutions to [Advent of Code](https://adventofcode.com/)
-2022.
+2022 🎄🎄🎄
 
 ```{r}
 #| results: asis
@@ -34,13 +34,9 @@ walk(files, \(file) {
 	code <- read_file(file.path(year, file, "code.R"))
 	
 	cat(knitr::knit(
-		text = glue::glue("
-		```{{r}}
-		{code}
-		```
-		"),
-		quiet = TRUE
+		text = glue::glue("```{{r {file}}}\n{code}\n```\n\n"),
+    quiet = TRUE
 	))
-	
-})
+
+}) 
 ```
