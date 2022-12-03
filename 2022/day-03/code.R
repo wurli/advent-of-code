@@ -4,26 +4,16 @@ input <- read_lines("2022/day-03/input.txt")
 
 priorities <- input |> 
   strsplit("") |> 
-  map(
-    ~ .x |> 
-      str_replace_all(
-        1:52 |> 
-          as.character() |> 
-          set_names(c(letters, LETTERS)) 
-      ) |> 
-      as.numeric()
-  )
+  map(~ as.numeric(str_replace_all(
+    .x, setNames(as.character(1:52), c(letters, LETTERS))
+  )))
 
 # Part 1
 priorities |> 
-  map_dbl(\(items) {
-    
-    intersect(
-      items[seq_along(items) <= length(items) / 2],
-      items[seq_along(items) >  length(items) / 2]
-    )
-    
-  }) |> 
+  map_dbl(~ intersect(
+    .x[seq_along(.x) <= length(.x) / 2],
+    .x[seq_along(.x) >  length(.x) / 2]
+  )) |> 
   sum()
 
 # Part 2
