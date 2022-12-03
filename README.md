@@ -5,6 +5,48 @@ Jacob Scott
 These are my solutions to [Advent of Code](https://adventofcode.com/)
 2022 🎄🎄🎄
 
+## day-03
+
+``` r
+library(tidyverse)
+
+input <- read_lines("2022/day-03/input.txt")
+
+priorities <- input |> 
+  strsplit("") |> 
+  map(
+    ~ .x |> 
+      str_replace_all(
+        1:52 |> 
+          as.character() |> 
+          set_names(c(letters, LETTERS)) 
+      ) |> 
+      as.numeric()
+  )
+
+# Part 1
+priorities |> 
+  map_dbl(\(items) {
+    
+    intersect(
+      items[seq_along(items) <= length(items) / 2],
+      items[seq_along(items) >  length(items) / 2]
+    )
+    
+  }) |> 
+  sum()
+#>  [1] 8394
+
+# Part 2
+priorities |> 
+  tapply(
+    (seq_along(input) - 1) %/% 3,
+    function(x) reduce(x, intersect)
+  ) |> 
+  sum()
+#>  [1] 2413
+```
+
 ## day-02
 
 ``` r
