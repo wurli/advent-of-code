@@ -18,6 +18,6 @@ priorities |>
 priorities |> 
   tapply(
     (seq_along(input) - 1) %/% 3,
-    function(x) reduce(x, intersect)
+    reduce, intersect
   ) |> 
   sum()
