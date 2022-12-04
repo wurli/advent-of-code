@@ -4,9 +4,7 @@ input <- read_lines("2022/day-03/input.txt")
 
 priorities <- input |> 
   strsplit("") |> 
-  map(~ as.numeric(str_replace_all(
-    .x, setNames(as.character(1:52), c(letters, LETTERS))
-  )))
+  map(match, c(letters, LETTERS))
 
 # Part 1
 priorities |> 
