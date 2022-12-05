@@ -8,13 +8,11 @@ These are my solutions to [Advent of Code](https://adventofcode.com/)
 ## day-05
 
 ``` r
-crates_raw       <- readLines("2022/day-05/crates.txt")
+crates_raw       <- read.fwf("2022/day-05/crates.txt", rep(1, 9 * 4 - 1))
 instructions_raw <- readLines("2022/day-05/instructions.txt")
 
-crates <- crates_raw |> 
-  strsplit("") |> 
-  vapply(\(x) x[((0:8) * 4) + 2], character(9)) |> 
-  lapply(y = _, X = 1:9, FUN = \(x, y) y[x,][y[x,] != " "])
+crates <- crates_raw[((0:8) * 4) + 2] |> 
+  lapply(\(x) x[x != " "])
 
 instructions <- instructions_raw |> 
   regmatches(gregexpr("\\d+", instructions_raw)) |> 
