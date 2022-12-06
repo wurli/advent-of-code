@@ -5,6 +5,27 @@ Jacob Scott
 These are my solutions to [Advent of Code](https://adventofcode.com/)
 2022 🎄🎄🎄
 
+## day-06
+
+``` r
+input <- strsplit(readLines("2022/day-06/input.txt"), "")[[1]]
+
+first_marker <- function(x, len = 4) {
+  len - 1 + match(TRUE, sapply(
+    seq_len(length(x) - len),
+    \(i) !any(duplicated(x[seq_len(len) + i - 1]))
+  ))
+}
+
+# Part 1
+first_marker(input, len = 4)
+#>  [1] 1987
+
+# Part 2
+first_marker(input, len = 14)
+#>  [1] 3059
+```
+
 ## day-05
 
 ``` r
