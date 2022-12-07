@@ -18,8 +18,8 @@ fs <- Reduce(x = input, init = list(fs = list(), pos = NULL), \(x, y) {
   
   x$fs[[x$pos]] <- c(x$fs[[x$pos]], if (!grepl("^\\$", y)) setNames(
     list(if (!grepl("^dir", y)) as.integer(gsub("\\D", "", y))), 
-    sub("^.+ ", "", y))
-  )
+    sub("^.+ ", "", y)
+  ))
   
   x
   
