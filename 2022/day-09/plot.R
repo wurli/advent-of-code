@@ -34,7 +34,9 @@ anim <- plot_data |>
   coord_fixed() +
   theme_void() +
   theme(panel.background = element_rect("lightblue", "transparent")) +
-  transition_states(stage) +
+  transition_states(stage, transition_length = 0) +
   shadow_mark(exclude_layer = 1, fill = "grey90")
 
-anim_save("2022/day-09/animation.gif", animate(anim, fps = 100))
+gif <- animate(anim, fps = 100, detail = 0, nframes = max(plot_data$stage))
+
+anim_save("2022/day-09/animation.gif", gif)
