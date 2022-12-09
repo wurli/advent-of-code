@@ -37,6 +37,6 @@ anim <- plot_data |>
   transition_states(stage, transition_length = 0) +
   shadow_mark(exclude_layer = 1, fill = "grey90")
 
-gif <- animate(anim, fps = 100, detail = 0, nframes = max(plot_data$stage))
+gif <- animate(anim, fps = 100, detail = 0, nframes = max(plot_data$stage) / 2)
 
 anim_save("2022/day-09/animation.gif", gif)
