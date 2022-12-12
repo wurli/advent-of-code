@@ -8,15 +8,12 @@ These are my solutions to [Advent of Code](https://adventofcode.com/)
 ## day-12
 
 ``` r
-input_raw <- readLines("2022/day-12/input.txt")
-width <- nchar(input_raw[1])
-
-input <- unlist(strsplit(input_raw, ""))
-
-start <- match("S", input)
-end   <- match("E", input)
-
-input <- match(input, letters)
+input_raw    <- readLines("2022/day-12/input.txt")
+width        <- nchar(input_raw[1])
+input        <- unlist(strsplit(input_raw, ""))
+start        <- match("S", input)
+end          <- match("E", input)
+input        <- match(input, letters)
 input[start] <- 1
 input[end]   <- 26
 
@@ -33,7 +30,7 @@ options <- lapply(seq_along(input), \(i) {
 shortest_path <- function(from, to, steps) {
   r <- c(list(from), rep(list(NULL), length(steps) - 1))
   for (i in seq_along(steps)) {
-    r[[i + 1]] <- x <- setdiff(unique(unlist(options[r[[i]]])), unlist(r[seq_len(i)]))
+    r[[i + 1]] <- x <- setdiff(unique(unlist(steps[r[[i]]])), unlist(r[seq_len(i)]))
     if (length(x) == 0) return(Inf)
     if (end %in% unlist(r)) break
   }
