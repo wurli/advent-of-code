@@ -13,10 +13,12 @@ input <- unlist(strsplit(readLines("2022/day-10/input.txt"), " ")) |>
 
 input <- head(cumsum(c(1, input)), -1)
 
+# Part 1
 indices <- 1:6 * 40 - 20
 sum(input[indices] * indices)
 #>  [1] 11220
 
+# Part 2
 matrix(input, ncol = 40, byrow = TRUE) |> 
   apply(1, \(x) paste(ifelse(x == -1:38 | x == 0:39 | x == 1:40, "#", " "), collapse = "")) |> 
   paste(collapse = "\n") |> 
