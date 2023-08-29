@@ -45,11 +45,11 @@ pub fn solve() -> String {
         let amount = e.1.parse::<i32>().unwrap();
 
         match dir {
-            "up"      => {
+            "up" => {
                 sub1.up(amount);
                 sub2.up(amount);
             },
-            "down"    => {
+            "down" => {
                 sub1.down(amount);
                 sub2.down(amount);
             },
@@ -57,7 +57,7 @@ pub fn solve() -> String {
                 sub1.forward(amount);
                 sub2.forward(amount)
             },
-            &_ => todo!()
+            &_ => panic!("Unrecognised direction detected '{}'", dir)
         }
     }
 

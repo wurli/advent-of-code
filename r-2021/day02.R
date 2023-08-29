@@ -13,7 +13,6 @@ input |>
     pos <<- pos + switch(x[1],
       up       = c(0, -amount),
       down     = c(0, amount),
-      backward = c(-amount, 0),
       forward  = c(amount, 0)
     )
   })
@@ -21,18 +20,17 @@ input |>
 prod(pos)
 
 # P2
-pos <- c(0, 0)
+pos <- c(0, 0, 0)
 
 input |> 
   walk(\(x) {
     type   <- x[1]
     amount <- x[2] |> as.integer() 
     pos <<- pos + switch(x[1],
-      up       = c(0, -amount),
-      down     = c(0, amount),
-      backward = c(-amount, 0),
-      forward  = c(amount, 0)
+      up       = c(0, 0, -amount),
+      down     = c(0, 0, amount),
+      forward  = c(amount, amount * pos[3], 0)
     )
   })
 
-prod(pos)
+prod(pos[1:2])
