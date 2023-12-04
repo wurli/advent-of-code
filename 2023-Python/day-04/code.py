@@ -7,7 +7,6 @@ with open("2023-Python/day-04/input.txt") as input_file:
 
 input_parsed = [
     {
-        "Card_No": int(re.findall(r"(?<=Card)\s+\d+", line)[0]),
         "Winning": set(map(int, re.findall(r"\d+", re.findall(r":.+\|", line)[0]))),
         "Present": set(map(int, re.findall(r"\d+", re.findall(r"\|.+$", line)[0])))
     }
