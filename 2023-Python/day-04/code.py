@@ -3,13 +3,13 @@ import math
 import re
 
 with open("2023-Python/day-04/input.txt") as input_file:
-    input = [re.sub(r"\s+", " ", line) for line in input_file.readlines()]
+    input = input_file.readlines()
 
 input_parsed = [
     {
-        "Card_No": int(re.findall(r"(?<=Card )\d+", line)[0]),
-        "Winning": {int(x) for x in re.split(r"\s+", re.findall(r"(?<=: ).+(?= \|)", line)[0])},
-        "Present": {int(x) for x in re.split(r"\s+", re.findall(r"(?<=\| ).+(?= )", line)[0])},
+        "Card_No": int(re.findall(r"(?<=Card)\s+\d+", line)[0]),
+        "Winning": set(map(int, re.findall(r"\d+", re.findall(r":.+\|", line)[0]))),
+        "Present": set(map(int, re.findall(r"\d+", re.findall(r"\|.+$", line)[0])))
     }
     for line in input
 ]
