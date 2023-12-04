@@ -5,16 +5,14 @@ import re
 with open("2023-Python/day-04/input.txt") as input_file:
     input = input_file.readlines()
 
-cards = [
-    {
-        "Winning": set(map(int, re.findall(r"\d+", re.findall(r":.+\|", line)[0]))),
-        "Present": set(map(int, re.findall(r"\d+", re.findall(r"\|.+$", line)[0])))
-    }
-    for line in input
-]
+def parse_line(line):
+    a, b, c = re.split(r"[|:]", line)
+    return set(map(int, b.split())), set(map(int, c.split()))
+
+cards = [parse_line(line) for line in input]
 
 # -- Part 1 ---------------------------------------------------------------------------
-n_matches = [len(card["Winning"].intersection(card["Present"])) for card in cards]
+n_matches = [len(card[0].intersection(card[1])) for card in cards]
 result1 = sum([math.floor(2 ** (n - 1)) for n in n_matches])
 
 # -- Part 2 ---------------------------------------------------------------------------
