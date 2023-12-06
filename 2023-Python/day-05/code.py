@@ -2,7 +2,6 @@ import functools as fn
 import re
 
 # -- Importing/parsing ---------------------------------------------------------
-
 with open("2023-Python/day-05/input.txt") as input_file:
     input = input_file.read().split("\n\n")
 
@@ -14,7 +13,6 @@ maps = [
 ]
 
 # -- Helper functions ----------------------------------------------------------
-
 def range_intersect(x, y):
     out = [range(max(x.start, y.start), min(x.stop, y.stop))]
     return [r for r in out if len(r) > 0]
