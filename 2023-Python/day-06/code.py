@@ -27,7 +27,7 @@
 # Substituting this in for [distance], we get a quadratic equation. We can
 # solve this (using the quadratic formula) to get two values for 
 # [time_spent_charging] which will get the boat exactly the distance needed.
-# Since the quadratic has a positive coefficient for time_spent_chargingx^2, 
+# Since the equation has a positive coefficient for time_spent_charging^2, 
 # all intermediate values will also win.
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 import math
