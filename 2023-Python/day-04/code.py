@@ -12,7 +12,7 @@ def parse_line(line):
 cards = [parse_line(line) for line in input]
 
 # -- Part 1 ---------------------------------------------------------------------------
-n_matches = [len(card[0].intersection(card[1])) for card in cards]
+n_matches = [len(card[0] & card[1]) for card in cards]
 result1 = sum([math.floor(2 ** (n - 1)) for n in n_matches])
 
 # -- Part 2 ---------------------------------------------------------------------------
