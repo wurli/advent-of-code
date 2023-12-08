@@ -20,4 +20,3 @@ def hand_strength2(hand):
 
 input.sort(key = lambda x: hand_strength2(x[0]))
 result2 = sum([(pos + 1) * int(x[1]) for pos, x in enumerate(input)])
-
